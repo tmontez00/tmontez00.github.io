@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>360 Photos</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene antialias="true">
+	
+	<a-assets>
+        <img id="pasteleria" src="images/pasteleria.jpg" crossorigin="anonymous" />
+        <img id="terra2" src="images/terra2.jpg" crossorigin="anonymous" />
+        <img id="artshow" src="images/artshow.jpg" crossorigin="anonymous" />
+        <img id="livingroom" src="images/livingroom.jpeg" crossorigin="anonymous" />
+        <img id="galaxy" src="images/galaxy.jpg" crossorigin="anonymous" />
+        
+	</a-assets>
+		
+	<a-sky 
+		color = "#FFFFFF"
+		material = "src: #galaxy">
+	</a-sky>
+
+	<a-sphere
+        position="-2.5 2.5 -2.5"
+        scale=".4 .4 .4"     
+        rotation="0 45 0"
+        material="src: #terra2;"
+        event-set__enter="_event: mouseenter; _target: a-sky; material.src: #terra2">
+    </a-sphere>  
+    <a-sphere
+        position="-2.5 2.5 2.5"
+        scale=".4 .4 .4"     
+        rotation="0 45 0"
+        material="src: #artshow;"
+        event-set__enter="_event: mouseenter; _target: a-sky; material.src: #artshow"      
+      ></a-sphere>  
+    <a-sphere
+        position="2.5 2.5 2.5"
+        scale=".4 .4 .4"     
+        rotation="0 45 0"
+        material="src: #pasteleria;"
+        event-set__enter="_event: mouseenter; _target: a-sky; material.src: #pasteleria"      
+      ></a-sphere>
+    <a-sphere
+        position="2.5 2.5 -2.5"
+        scale=".4 .4 .4"     
+        rotation="0 45 0"
+        material="src: #livingroom;"
+        event-set__enter="_event: mouseenter; _target: a-sky; material.src: #livingroom"      
+      ></a-sphere>
+    
+    <a-camera>
+        <a-cursor></a-cursor>
+    </a-camera>
+    
+	
+    </a-scene>
+</body>
+</html>
